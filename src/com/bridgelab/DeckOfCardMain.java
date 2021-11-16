@@ -1,8 +1,10 @@
 package com.bridgelab;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DeckOfCardMain {
+    Scanner input=new Scanner(System.in);
     //creating Arraylist
     ArrayList<String> cardCollection = new ArrayList<>();
     /*
@@ -11,11 +13,6 @@ public class DeckOfCardMain {
     public static String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
     public static String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "King", "Queen", "Ace"};
 
-    public static void main(String[] args) {
-        System.out.println("****Welcome to decks of card problem****");
-        DeckOfCardMain deckOfCardMain = new DeckOfCardMain();
-        deckOfCardMain.initializeCards();
-    }
 
     public void initializeCards() {
         /*
@@ -31,5 +28,21 @@ public class DeckOfCardMain {
             }
         }
         System.out.println("Cards are: "+ cardCollection);
+    }
+
+    public void noOfPlayer(){
+        System.out.println("enter the no. of player : ");
+        int noOfPlayer=input.nextInt();
+        if (noOfPlayer>=2 && noOfPlayer<=4){
+            System.out.println(noOfPlayer+"players will play the game");
+        }
+        else
+            System.out.println("min 2 and max 4 players can play the game");
+    }
+    public static void main(String[] args) {
+        System.out.println("****Welcome to decks of card problem****");
+        DeckOfCardMain deckOfCardMain = new DeckOfCardMain();
+        deckOfCardMain.initializeCards();
+        deckOfCardMain.noOfPlayer();
     }
 }
