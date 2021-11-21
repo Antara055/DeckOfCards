@@ -1,6 +1,7 @@
 package com.bridgelab;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class DeckOfCardMain {
@@ -12,7 +13,6 @@ public class DeckOfCardMain {
      */
     public static String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
     public static String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "King", "Queen", "Ace"};
-
 
     public void initializeCards() {
         /*
@@ -30,11 +30,32 @@ public class DeckOfCardMain {
         System.out.println("Cards are: "+ cardCollection);
     }
 
+    public void sequence(int player){
+        int totalCards = suits.length * ranks.length;
+        for (int i=1;i<=player;i++){
+            System.out.println("\nPlayer " + i + " getting card->");
+            shuffle(cardCollection);
+        }
+    }
+
+    public static void shuffle(ArrayList<String> cardsDeck){
+        System.out.println("shuffling the cards before Distribution");
+        ArrayList<String> temp = new ArrayList<String>();
+        while (!cardsDeck.isEmpty()) {
+            int loc = (int) (Math.random() * cardsDeck.size());
+            temp.add(cardsDeck.get(loc));
+            cardsDeck.remove(loc);
+        }
+        cardsDeck = temp;
+        System.out.println(cardsDeck);
+    }
+
     public static void main(String[] args) {
         System.out.println("****Welcome to decks of card problem****");
         DeckOfCardMain deckOfCardMain = new DeckOfCardMain();
         deckOfCardMain.initializeCards();
         Players players=new Players();
         int player=players.noOfPlayer();
+        deckOfCardMain.sequence(player);
     }
 }
