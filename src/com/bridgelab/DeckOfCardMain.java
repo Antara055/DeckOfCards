@@ -30,19 +30,11 @@ public class DeckOfCardMain {
         System.out.println("Cards are: "+ cardCollection);
     }
 
-    public void noOfPlayer(){
-        System.out.println("enter the no. of player : ");
-        int noOfPlayer=input.nextInt();
-        if (noOfPlayer>=2 && noOfPlayer<=4){
-            System.out.println(noOfPlayer+"players will play the game");
-        }
-        else
-            System.out.println("min 2 and max 4 players can play the game");
-    }
     public static void main(String[] args) {
         System.out.println("****Welcome to decks of card problem****");
         DeckOfCardMain deckOfCardMain = new DeckOfCardMain();
         deckOfCardMain.initializeCards();
-        deckOfCardMain.noOfPlayer();
+        Players players=new Players();
+        int player=players.noOfPlayer();
     }
 }
